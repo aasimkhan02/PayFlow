@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: payflow
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payflow
+    username: payflowuser
+    password: payflowpassword
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8080
+
+payflow:
+  risk:
+    max-transaction-amount: 10000.00
+    velocity:
+      max-transactions: 5
+      time-window-seconds: 60
